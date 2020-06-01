@@ -1,0 +1,72 @@
+#喝酒年龄：
+age = int(input('''Please tell me your age: 
+ an int number , e.g: 22
+'''))
+if age < 18:
+    print('I can not sell you drinks...')
+else:
+    print('Have a nice drink!')
+
+#100内能被7整除的数字：
+def seven(n):      #求能被7整出的数字for循环
+    for i in range(n):
+        if i % 7 == 0:
+            yield i     
+for s in seven(50):
+    print(s)
+    
+def seven(n):    #求能被7整出的数字while循环
+    start = 0
+    while start < n :
+        if start % 7 == 0:
+            yield start
+        start += 1
+            
+for start in seven(50):
+    print(start)
+    
+#奖金问题：
+i = int(input('请输入利润（万元）'))  #利润计算题,i为利润，g为总奖金数额
+
+if i <= 10:  #利润为i，奖金为g
+    g = i * 0.1
+    
+elif i > 10 and i < 20: 
+    g = 10 * 0.1 + (i - 10)*0.075
+    
+print(f'奖金为{g}万元')  
+
+#100以内的质数：
+number = 0    #100以内的质数计算
+a_list = []
+
+for n in range(2,101):  #n在2-100范围循环，由于是选取100以内的质数，所以n在2-100内循环即可，j不需要在2-100内循环，j能配合验证完n即可。
+        for j in range(2,n):  #j在2-（n-1）范围循环，如果n+1会循环到n本身，而任何数字都可以被自己整出，所以循环会终止。
+            if n % j == 0:      
+                break
+        else:
+            number += 1
+            a_list.append(n)
+        
+print(a_list)
+print(number)
+
+#盗梦空间简单模拟：
+import random
+
+def in_dream(day=0, dead=False, kicked=False):
+    dead = not random.randrange(0,10) # 1/10 probability to be dead        #任何0的结果都会被判断为False，所以random.randrange(0,10)有十分之一的概率为False，在前面加not是为了返回布尔值真假，这样如果随机数字为0则会返回True，而且随机为其他数字则会返回False。
+    kicked = not random.randrange(0,10) # 1/10 probability to be kicked
+    day += 1
+    print('dead:', dead, 'kicked:', kicked)
+    
+    if dead:
+        print((f"I slept {day} days, and was dead to wake up..."))
+        return day
+    elif kicked:
+        print(f"I slept {day} days, and was kicked to wake up...")
+        return day
+    
+    return in_dream(day)
+    
+print('The in_dream() function returns:', in_dream())

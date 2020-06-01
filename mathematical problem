@@ -1,0 +1,19 @@
+import random
+
+score_user = 0
+while score_user < 3 :
+    a = random.randrange(0,100)
+    b = random.randrange(0,100)
+    i = a + b
+    print(a,'+',b,'= ?')
+    answer = int( input("输入答案"))
+
+
+    if answer == i:
+        score_user += 1
+        print('答案正确\n')
+    else:
+        score_user -= 1
+        print('答案错误\n')
+        
+print('恭喜你完成了今天的测试！\n请继续努力')

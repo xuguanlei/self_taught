@@ -112,3 +112,9 @@ def sum(list):        #函数内添加列表
                           
 mylist = [1,2,3,4,5]     #定义上面函数中需要的列表
 print(sum(mylist))      #输出结果
+
+#按开头字母导出列表中需要的项目
+states = []
+for state in states: 
+    if state[0] == 'M': 
+        print(state)

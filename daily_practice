@@ -118,3 +118,9 @@ states = []
 for state in states: 
     if state[0] == 'M': 
         print(state)
+
+#給列表中的元组中的元素排序
+from operator import itemgetter
+x = [ (3,6,8),(4,7,6),(5,9,9),(8,4,7),(3,1,4)]
+x.sort(key=itemgetter(2))  #2表示每个元组中的第几个元素
+print(x)
